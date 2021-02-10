@@ -1,0 +1,176 @@
+$red: #fe5f1e;
+$light-gray: #f6f6f6;
+$white: #ffffff;
+
+.button {
+  display: inline-block;
+  min-width: 100px;
+  padding: 10px 20px;
+
+  text-align: center;
+
+  background-color: $red;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+
+  -webkit-transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out;
+          transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  -webkit-touch-callout: none;
+
+  &,
+  & span {
+    color: $white;
+  }
+
+  & i,
+  & span,
+  & path,
+  & svg {
+    -webkit-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+  }
+
+  &:hover {
+    background-color: #f24701;
+  }
+
+  &:active {
+    background-color: #de4101;
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+}
+
+.button--circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+
+  border-width: 2px;
+
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+}
+
+.button--black {
+  background-color: #232323;
+
+  &:hover,
+  &:active {
+    background-color: #3d3d3d;
+  }
+}
+
+.button--outline {
+  background-color: $white;
+  border-color: $red;
+
+  &,
+  & span {
+    color: $red;
+  }
+
+  & svg path {
+    fill: $red;
+  }
+
+  &:hover {
+    background-color: $red;
+  }
+
+  &:hover,
+  &:hover span {
+    color: $white;
+  }
+
+  &:hover svg path {
+    fill: $white;
+  }
+
+  &:active {
+    background-color: #f24701;
+  }
+}
+
+.button__delimiter {
+  width: 1px;
+  height: 25px;
+  margin-right: 14px;
+  margin-left: 14px;
+
+  background-color: rgba(255,255,255,0.25);
+}
+
+.button--add {
+  & svg {
+    margin-right: 2px;
+  }
+
+  & span {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &:hover i {
+    color: $red;
+
+    background-color: $white;
+  }
+
+  & i {
+    position: relative;
+    top: -1px;
+    left: 3px;
+
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: $white;
+    font-style: normal;
+
+    background-color: $red;
+    border-radius: 30px;
+  }
+}
+
+.button--cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+
+  line-height: 23px;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+
+  & svg {
+    margin-right: 8px;
+    margin-bottom: 1px;
+  }
+
+  & span {
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
