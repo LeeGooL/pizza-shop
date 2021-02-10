@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./categories.scss";
+
 const Categories = ({ items = [], onClick }) => {
   const [activeItem, setActiveItem] = useState(null);
 
@@ -11,7 +13,6 @@ const Categories = ({ items = [], onClick }) => {
     return (
       <li
         key={`${name}_${index}`}
-        onClick={() => onClick(name)}
         className={activeItem === index ? "active" : ""}
         onClick={() => onSelectItem(index)}
       >
