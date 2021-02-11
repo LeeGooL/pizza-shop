@@ -6,7 +6,7 @@ const Sort = ({ items }) => {
   const [visibleSort, setVisibleSort] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const sortRef = useRef();
-  const activeLabel = items[activeItem];
+  const activeLabel = items[activeItem].name;
 
   useEffect(() => {
     document.body.addEventListener("click", handleOutsideClick);
@@ -27,14 +27,14 @@ const Sort = ({ items }) => {
     }
   };
 
-  const name = items.map((item, index) => {
+  const name = items.map((obj, index) => {
     return (
       <li
         className={activeItem === index ? "active" : ""}
-        key={`${item}_${index}`}
+        key={`${obj.name}_${index}`}
         onClick={() => onSelectItem(index)}
       >
-        {item}
+        {obj.name}
       </li>
     );
   });

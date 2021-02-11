@@ -12,7 +12,7 @@ const Categories = ({ items = [], onClick }) => {
   const item = items.map((name, index) => {
     return (
       <li
-        key={`${name}_${index}`}
+        key={`${name}_${index}`} 
         className={activeItem === index ? "active" : ""}
         onClick={() => onSelectItem(index)}
       >
