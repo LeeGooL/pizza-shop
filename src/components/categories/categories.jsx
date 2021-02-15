@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./categories.scss";
 
-const Categories = ({ items = [], onClick }) => {
-  const [activeItem, setActiveItem] = useState(null);
+const Categories = React.memo(({ items = [], onClickItem }) => {
+  const [activeItem, setActiveItem] = React.useState(null);
 
   const onSelectItem = (index) => {
     setActiveItem(index);
+    onClickItem(index);
   };
 
   const item = items.map((name, index) => {
     return (
       <li
-        key={`${name}_${index}`} 
+        key={`${name}_${index}`}
         className={activeItem === index ? "active" : ""}
         onClick={() => onSelectItem(index)}
       >
@@ -34,6 +35,6 @@ const Categories = ({ items = [], onClick }) => {
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

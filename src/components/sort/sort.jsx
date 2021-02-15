@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "./sort.scss";
 
-const Sort = ({ items }) => {
+const Sort = React.memo(({ items }) => {
   const [visibleSort, setVisibleSort] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const sortRef = useRef();
@@ -66,6 +66,6 @@ const Sort = ({ items }) => {
       )}
     </div>
   );
-};
+});
 
 export default Sort;

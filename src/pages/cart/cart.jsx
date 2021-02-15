@@ -1,11 +1,13 @@
 import React from "react";
 
-import './cart.scss';
+import "./cart.scss";
 
 const Cart = () => {
   return (
     <div>
-      <h1>Корзина</h1>
+      <div className="container">
+        <h1>Корзина</h1>
+      </div>
     </div>
   );
 };
