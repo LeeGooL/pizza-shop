@@ -25,7 +25,9 @@ const Sort = React.memo(({ items, onClickSortType, activeSortType }) => {
   };
 
   const handleOutsideClick = (e) => {
-    if (!e.path.includes(sortRef.current)) {
+    const path = e.path || (e.composePath && e.composedPath());
+
+    if (!path.includes(sortRef.current)) {
       setVisibleSort(false);
     }
   };

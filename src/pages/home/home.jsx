@@ -5,6 +5,7 @@ import { Categories, Sort, PizzaBlock, LoadingBlock } from "../../components";
 
 import { setCategory, setSortBy } from "../../redux/actions/filters";
 import { fetchPizzas } from "../../redux/actions/pizzas";
+import { addPizzaToCart } from "../../redux/actions/cart";
 
 import "./home.scss";
 
@@ -25,6 +26,7 @@ const sortItems = [
 const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
+  const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
 
@@ -38,10 +40,19 @@ const Home = () => {
 
   const onSelectSortType = React.useCallback((type) => {
     dispatch(setSortBy(type));
-  });
+  }, []);
+
+  const handleAddPizzaToCart = (obj) => {
+    dispatch(addPizzaToCart(obj));
+  };
 
   const blocks = items.map((obj) => (
-    <PizzaBlock key={obj.id} isLoading={true} {...obj} />
+    <PizzaBlock
+      onClickAddPizza={handleAddPizzaToCart}
+      key={obj.id}
+      addedCount={cartItems[obj.id] && cartItems[obj.id].length}
+      {...obj}
+    />
   ));
 
   return (
