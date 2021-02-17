@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
 import "./pizza-block.scss";
 
-const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
+const PizzaBlock = ({ name, imageUrl, price, types, sizes, isLoading }) => {
   const availableTypes = ["тонкое", "традиционное"];
   const availableSizes = [26, 30, 40];
 
-  const [activeType, setActiveType] = useState(types[0]);
-  const [activeSize, setActiveSize] = useState(sizes[0]);
+  const [activeType, setActiveType] = React.useState(types[0]);
+  const [activeSize, setActiveSize] = React.useState(sizes[0]);
 
   const onSelectType = (index) => {
     setActiveType(index);
@@ -89,13 +89,15 @@ PizzaBlock.propTypes = {
   price: PropTypes.number,
   types: PropTypes.arrayOf(PropTypes.number).isRequired,
   sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+  isLoading: PropTypes.bool,
 };
 
 PizzaBlock.defaultProps = {
-  name: '---',
+  name: "---",
   price: 0,
   types: [],
   sizes: [],
+  isLoading: false,
 };
 
 export default PizzaBlock;

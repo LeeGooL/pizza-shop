@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 import "./sort.scss";
 
-const Sort = React.memo(({ items }) => {
-  const [visibleSort, setVisibleSort] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
-  const sortRef = useRef();
-  const activeLabel = items[activeItem].name;
+const Sort = React.memo(({ items, onClickSortType, activeSortType }) => {
+  const [visibleSort, setVisibleSort] = React.useState(false);
+  const sortRef = React.useRef();
+  const activeLabel = items.find((obj) => obj.type === activeSortType).name;
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.body.addEventListener("click", handleOutsideClick);
   }, []);
 
@@ -17,7 +17,10 @@ const Sort = React.memo(({ items }) => {
   };
 
   const onSelectItem = (index) => {
-    setActiveItem(index);
+    if (onClickSortType) {
+      onClickSortType(index);
+    }
+
     setVisibleSort(false);
   };
 
@@ -30,9 +33,9 @@ const Sort = React.memo(({ items }) => {
   const name = items.map((obj, index) => {
     return (
       <li
-        className={activeItem === index ? "active" : ""}
+        className={activeSortType === obj.type ? "active" : ""}
         key={`${obj.name}_${index}`}
-        onClick={() => onSelectItem(index)}
+        onClick={() => onSelectItem(obj)}
       >
         {obj.name}
       </li>
@@ -67,5 +70,15 @@ const Sort = React.memo(({ items }) => {
     </div>
   );
 });
+
+Sort.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeSortType: PropTypes.string.isRequired,
+  onClickSortType: PropTypes.func.isRequired,
+};
+
+Sort.defaultProps = {
+  items: [],
+};
 
 export default Sort;
