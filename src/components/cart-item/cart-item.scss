@@ -1,0 +1,145 @@
+$red: #fe5f1e;
+$light-gray: #f6f6f6;
+$white: #ffffff;
+$orange: #fe5f1e;
+
+.cart__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 30px;
+
+  border-top: 1px solid $light-gray;
+}
+
+.cart__item-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  width: 10%;
+  margin-right: 15px;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+
+  & img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+.cart__item-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  justify-content: center;
+  width: 40%;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+
+  & h3 {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+  }
+
+  & p {
+    font-size: 18px;
+    color: #8d8d8d;
+  }
+}
+
+
+.cart__item-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 13%;
+
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+
+  & b {
+    font-size: 22px;
+  }
+}
+
+.cart__item-count-minus svg path:first-of-type {
+  display: none;
+}
+
+
+.cart__item-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+
+  &  b {
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 0.01em;
+  }
+}
+
+
+.cart__item-remove {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 4%;
+
+  -webkit-box-align: center;
+  -webkit-box-pack: end;
+  -ms-flex-align: center;
+  -ms-flex-pack: end;
+
+  & .button {
+    border-color: #dddddd;
+  }
+
+  & svg {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+
+  & svg path {
+    fill: #d0d0d0;
+  }
+
+  & .button svg {
+    position: relative;
+
+    width: 11.5px;
+    height: 11.5px;
+  }
+
+  & .button:hover,
+  & .button:active {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+  }
+}
